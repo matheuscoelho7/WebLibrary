@@ -24,8 +24,17 @@ public class ServiceDAO {
         return servicoDAO.buscarServico(servico, usuarioLogado);
     }
 
-    public void inserir(Servico servico){
+    private List<Service> buscarServico(Service servico, Usuario usuarioLogado) {
+        //IMPLEMENTAR MÉTODO
+        return null;
+    }
+
+    public void inserir(Service servico){
         servicoDAO.salvar(servico);
+    }
+
+    private void salvar(Service servico) {
+        //IMPLEMENTAR MÉTODO
     }
 
 }

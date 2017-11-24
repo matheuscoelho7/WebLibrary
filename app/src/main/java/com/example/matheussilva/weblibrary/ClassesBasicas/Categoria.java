@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public class Categoria implements Serializable {
 
+    //Esta é a classe LIVRO
     private int id;
     private String descricao;
     private String caminhoImagem;
