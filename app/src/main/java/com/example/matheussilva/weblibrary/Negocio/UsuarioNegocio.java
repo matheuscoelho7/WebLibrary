@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.matheussilva.weblibrary.BClasses.Usuario;
 import com.example.matheussilva.weblibrary.DAO.UsuarioDAO;
+import com.example.matheussilva.weblibrary.Util.NegocioException;
 
 /**
  * Created by matheus.silva on 24/11/2017.

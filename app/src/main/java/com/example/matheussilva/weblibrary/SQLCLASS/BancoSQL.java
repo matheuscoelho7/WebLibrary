@@ -14,7 +14,7 @@ public class BancoSQL extends SQLiteOpenHelper {
     ContentValues cv;
 
     public BancoSQL(Context context) {
-        super(context, "dbJoinService4", null, 1);
+        super(context, "dbWebLibrary", null, 1);
     }
 
     @Override
@@ -24,27 +24,28 @@ public class BancoSQL extends SQLiteOpenHelper {
                         "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "NOME TEXT NOT NULL, " +
                         "EMAIL TEXT NOT NULL, " +
-                        "SENHA TEXT NOT NULL, " +
-                        "CELULAR TEXT)");
+                        "LOGIN TEXT NOT NULL, " +
+                        "SENHA TEXT NOT NULL)");
 
         sqLiteDatabase.execSQL(
-                "CREATE TABLE SERVICO (" +
+                "CREATE TABLE SERVICE (" +
                         "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "DESCRICAO TEXT NOT NULL, " +
-                        "PRAZO INTEGER NOT NULL, " +
-                        "LONGITUDE TEXT NOT NULL, " +
-                        "LATITUDE TEXT NOT NULL, " +
+                        "PRAZO_ENTREGA INTEGER NOT NULL, " +
+                        "PRAZO_BUSCA_POR_AGEND INTEGER NOT NULL, " +
+                        "STATUS TEXT NOT NULL," +
+                        //"LONGITUDE TEXT NOT NULL, " +
+                        //"LATITUDE TEXT NOT NULL, " +
                         "USUARIO_ID INTEGER NOT NULL," +
                         "CATEGORIA_ID INTEGER NOT NULL," +
-                        "STATUS TEXT NOT NULL," +
-                        "DATA_INSERCAO TEXT NOT NULL," +
                         "FOREIGN KEY(USUARIO_ID) REFERENCES USUARIO(ID)," +
                         "FOREIGN KEY(CATEGORIA_ID) REFERENCES CATEGORIA(ID))");
 
         sqLiteDatabase.execSQL(
-                "CREATE TABLE CATEGORIA_SERVICO (" +
+                "CREATE TABLE CATEGORIA_LIVRO (" +
                         "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        "DESCRICAO TEXT NOT NULL, " +
+                        "CATEGORIA TEXT NOT NULL," +
+                        "TITULO TEXT NOT NULL, " +
                         "CAMINHO_IMAGEM TEXT)");
 
         sqLiteDatabase.execSQL(
@@ -53,44 +54,61 @@ public class BancoSQL extends SQLiteOpenHelper {
                         "TIPO TEXT NOT NULL)");
 
 
-        //INSERT USUÁRIO ADMINISTRADOR
+        //Usuário Administrador
         cv = new ContentValues();
-        cv.put("NOME", "A");
-        cv.put("SENHA", "A");
-        cv.put("EMAIL", "A");
-        cv.put("CELULAR", "81995782171");
+        cv.put("LOGIN", "admin");
+        cv.put("NOME", "MATHEUS");
+        cv.put("SENHA", "123");
+        cv.put("EMAIL", "matheusguilherme.coelho02@gmail.com");
+        cv.put("CELULAR", "81984813918");
         sqLiteDatabase.insert("USUARIO", null, cv);
 
-        //INSERT DE 5 CATEGORIAS DE SERVIÇO
+        //Categorias de Livros
         cv = new ContentValues();
-        cv.put("DESCRICAO", "Celulares e Telefones");
-        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+        cv.put("CATEGORIA", "Ação");
+        sqLiteDatabase.insert("CATEGORIA_LIVRO", null, cv);
 
         cv = new ContentValues();
-        cv.put("DESCRICAO", "Eletrodomésticos");
-        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+        cv.put("CATEGORIA", "Anime");
+        sqLiteDatabase.insert("CATEGORIA_LIVRO", null, cv);
 
         cv = new ContentValues();
-        cv.put("DESCRICAO", "Móveis e Decoração");
-        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+        cv.put("CATEGORIA", "Comédia");
+        sqLiteDatabase.insert("CATEGORIA_LIVRO", null, cv);
 
         cv = new ContentValues();
-        cv.put("DESCRICAO", "Administrativos");
-        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+        cv.put("CATEGORIA", "Drama");
+        sqLiteDatabase.insert("CATEGORIA_LIVRO", null, cv);
 
         cv = new ContentValues();
-        cv.put("DESCRICAO", "Reformas");
-        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+        cv.put("CATEGORIA", "Ficção Científica");
+        sqLiteDatabase.insert("CATEGORIA_LIVRO", null, cv);
+
+        cv = new ContentValues();
+        cv.put("CATEGORIA", "Romance");
+        sqLiteDatabase.insert("CATEGORIA_LIVRO", null, cv);
+
+        cv = new ContentValues();
+        cv.put("CATEGORIA", "Suspense");
+        sqLiteDatabase.insert("CATEGORIA_LIVRO", null, cv);
+
+        cv = new ContentValues();
+        cv.put("CATEGORIA", "Terror");
+        sqLiteDatabase.insert("CATEGORIA_LIVRO", null, cv);
+
+        cv = new ContentValues();
+        cv.put("CATEGORIA", "Internacionais");
+        sqLiteDatabase.insert("CATEGORIA_LIVRO", null, cv);
 
         //INSERT USUÁRIO SERVICO
         cv = new ContentValues();
-        cv.put("DESCRICAO", "CONSERTO DE CHUVEIRO ELÉTRICO");
-        cv.put("PRAZO", "2 SEMANAS");
-        cv.put("LONGITUDE", "60");
-        cv.put("LATITUDE", "30");
+        cv.put("DESCRICAO", "ALUGUEL DE LIVRO");
+        cv.put("PRAZO", "1 MÊS");
+        //cv.put("LONGITUDE", "60");
+        //cv.put("LATITUDE", "30");
         cv.put("USUARIO_ID", "1");
         cv.put("CATEGORIA_ID", "1");
-        sqLiteDatabase.insert("SERVICO", null, cv);
+        sqLiteDatabase.insert("SERVICE", null, cv);
 
     }
 
