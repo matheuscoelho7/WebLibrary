@@ -2,7 +2,10 @@ package com.example.matheussilva.weblibrary.DAO;
 
 import android.content.Context;
 
-import com.example.matheussilva.weblibrary.BClasses.Usuario;
+import com.example.matheussilva.weblibrary.ClassesBasicas.Service;
+import com.example.matheussilva.weblibrary.ClassesBasicas.Usuario;
+
+import java.util.List;
 
 /**
  * Created by matheus.silva on 24/11/2017.
@@ -16,8 +19,8 @@ public class ServiceDAO {
         servicoDAO = new ServiceDAO(context);
     }
 
-    public List<Servico> ListarServicosUsuario(Usuario usuarioLogado) {
-        Servico servico = new Servico();
+    public List<Service> ListarServicosUsuario(Usuario usuarioLogado) {
+        Service servico = new Service();
         return servicoDAO.buscarServico(servico, usuarioLogado);
     }
 

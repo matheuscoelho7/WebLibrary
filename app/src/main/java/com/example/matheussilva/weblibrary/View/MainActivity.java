@@ -1,4 +1,4 @@
-package com.example.matheussilva.weblibrary.Views;
+package com.example.matheussilva.weblibrary.View;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

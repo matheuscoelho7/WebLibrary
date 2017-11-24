@@ -1,4 +1,4 @@
-package com.example.matheussilva.weblibrary.SQLCLASS;
+package com.example.matheussilva.weblibrary.Banco;
 
 import android.content.ContentValues;
 import android.content.Context;

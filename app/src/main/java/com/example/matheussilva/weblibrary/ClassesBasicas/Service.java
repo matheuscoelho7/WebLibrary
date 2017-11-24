@@ -1,4 +1,4 @@
-package com.example.matheussilva.weblibrary.BClasses;
+package com.example.matheussilva.weblibrary.ClassesBasicas;
 
 import java.io.Serializable;
 
@@ -11,6 +11,7 @@ public class Service implements Serializable {
     private int id;
     private Usuario usuario;
     private Categoria categoria;
+    private Titulo titulo;
     private String status;
     private int prazoEntrega; //prazo de entrega dos livros
     private int prazoBuscaPorAgendamento; //prazo de entrega dos livros

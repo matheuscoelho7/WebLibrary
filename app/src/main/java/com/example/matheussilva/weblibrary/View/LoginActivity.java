@@ -1,4 +1,4 @@
-package com.example.matheussilva.weblibrary.Views;
+package com.example.matheussilva.weblibrary.View;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -9,14 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.matheussilva.weblibrary.ClassesBasicas.Usuario;
 import com.example.matheussilva.weblibrary.Fachada.Fachada;
 import com.example.matheussilva.weblibrary.R;
+import com.example.matheussilva.weblibrary.Util.NegocioException;
 
 public class LoginActivity extends AppCompatActivity {
-
-
     Button btnAcessar;
     EditText edtLogin, edtSenha;
+    Usuario usuario;
+    Fachada fachada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,26 +34,18 @@ public class LoginActivity extends AppCompatActivity {
 
     private SQLiteOpenHelper mDBHelper;
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        Button buttonAcessar = (Button) findViewById(R.id.btnAcessar);
-
-        fachada = Fachada.getInstance(this);
-
+        Fachada f = new Fachada();
+            f.getInstance(this);
         usuario = fachada.usuarioLogado();
 
         if (usuario.getId() > 0) {
             verificarTipoUsuario(usuario.getTipo());
         }
-    }
 
     public void entrar(View v) {
 
-        email = (EditText) findViewById(R.id.editText_email_login);
-        senha = (EditText) findViewById(R.id.editText_senha_login);
+        email = (EditText) findViewById(R.id.edtLogin);
+        senha = (EditText) findViewById(R.id.edtPassword);
 
         try {
             usuario = fachada.usuarioLogar(email.getText().toString(), senha.getText().toString());
@@ -61,24 +55,29 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(getApplicationContext(), "Dados inválidos, tente novamente!", Toast.LENGTH_LONG).show();
             }
-        } catch (NegocioException e) {
-            Toast.makeText(getApplicationContext(), e.getMessage.toString(), Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
     public void verificarTipoUsuario(String tipo){
 
+        Intent intent;
+
         Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
         Intent itEntrar;
 
-        if (tipo.equals("Prestador")) {
-            itEntrar = new Intent(TelaLogin.this, StartPrestador.class);
+        //Tipo do login
+        if (tipo.equals("Padrao")) {
+             intent = new Intent(getApplication(), MainActivity.class);
+            startActivity(intent);
         }else{
-            itEntrar = new Intent(TelaLogin.this, StartCliente.class);
+             intent = new Intent(getApplication(), LoginActivity.class);
+            startActivity(intent);
         }
 
-        itEntrar.putExtra("usuario", usuario);
-        startActivity(itEntrar);
+        intent.putExtra("usuario", usuario);
+        startActivity(intent);
     }
 
     public void cadastrar(View v) {

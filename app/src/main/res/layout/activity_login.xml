@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.matheussilva.weblibrary.Views.LoginActivity">
+    tools:context="com.example.matheussilva.weblibrary.View.LoginActivity">
 
     <EditText
         android:textAlignment="center"
@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="151dp" />
+        tools:layout_editor_absoluteY="151dp"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:textAlignment="center"
@@ -24,7 +25,8 @@
         android:hint="Senha"
         android:inputType="textPassword"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="217dp" />
+        tools:layout_editor_absoluteY="217dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnAcessar"
@@ -32,7 +34,8 @@
         android:layout_height="wrap_content"
         android:text="Acessar"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="290dp" />
+        tools:layout_editor_absoluteY="290dp"
+        tools:ignore="MissingConstraints" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.matheussilva.weblibrary.BClasses;
+package com.example.matheussilva.weblibrary.ClassesBasicas;
 
 import java.io.Serializable;
 

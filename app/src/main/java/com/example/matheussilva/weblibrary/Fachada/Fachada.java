@@ -2,8 +2,13 @@ package com.example.matheussilva.weblibrary.Fachada;
 
 import android.content.Context;
 
-import com.example.matheussilva.weblibrary.BClasses.Usuario;
+import com.example.matheussilva.weblibrary.ClassesBasicas.Service;
+import com.example.matheussilva.weblibrary.ClassesBasicas.Usuario;
+import com.example.matheussilva.weblibrary.Negocio.ServiceNegocio;
 import com.example.matheussilva.weblibrary.Negocio.UsuarioNegocio;
+import com.example.matheussilva.weblibrary.Util.NegocioException;
+
+import java.util.List;
 
 /**
  * Created by matheus.silva on 24/11/2017.
@@ -13,7 +18,7 @@ public class Fachada {
 
     private static Fachada fachada;
     UsuarioNegocio usuarioNegocio;
-    ServicoNegocio servicoNegocio;
+    ServiceNegocio servicoNegocio;
 
     public static Fachada getInstance(Context context) {
         if (fachada == null)
@@ -23,12 +28,12 @@ public class Fachada {
 
     public Fachada(Context context) {
         usuarioNegocio = new UsuarioNegocio(context);
-        servicoNegocio = new ServicoNegocio(context);
+        servicoNegocio = new ServiceNegocio(context);
     }
 
     //Usuário
-    public Usuario usuarioLogar(String email, String senha) throws NegocioException {
-        return usuarioNegocio.logar(email, senha);
+    public Usuario usuarioLogar(String login, String senha) throws NegocioException {
+        return usuarioNegocio.logar(login, senha);
     }
 
     public void usuarioAlterar(Usuario usuario) {
@@ -50,11 +55,11 @@ public class Fachada {
     public void usuarioAtualizarUsuarioLogado(Usuario usuario){ usuarioNegocio.usuarioAtualizarUsuarioLogado(usuario);}
 
     //Serviços
-    public List<Servico> ListarServicosUsuario(Usuario usuarioLogado) {
+    public List<Service> ListarServicosUsuario(Usuario usuarioLogado) {
         return servicoNegocio.ListarServicosUsuario(usuarioLogado);
     }
 
-    public void servicoInserir(Servico servico) {
+    public void servicoInserir(Service servico) {
         servicoNegocio.inserir(servico);
     }
 }

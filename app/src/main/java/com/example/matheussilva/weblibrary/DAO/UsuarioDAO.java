@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
-import com.example.matheussilva.weblibrary.BClasses.Usuario;
-import com.example.matheussilva.weblibrary.SQLCLASS.BancoSQL;
+import com.example.matheussilva.weblibrary.ClassesBasicas.Usuario;
+import com.example.matheussilva.weblibrary.Banco.BancoSQL;
 
 import java.util.ArrayList;
 import java.util.List;

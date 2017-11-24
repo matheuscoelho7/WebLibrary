@@ -4,6 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.matheussilva.weblibrary.Views.CadastroActivity">
+    tools:context="com.example.matheussilva.weblibrary.View.CadastroActivity">
+
+    <TextView
+        android:layout_width="115dp"
+        android:layout_height="22dp"
+        android:text="Nome de Usuário:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <EditText
+        android:id="@+id/edtLogin"
+        android:layout_width="350dp"
+        android:layout_height="41dp"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="66dp" />
+
+    <TextView
+        android:layout_width="115dp"
+        android:layout_height="22dp"
+        android:text="Email:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="350dp"
+        android:layout_height="41dp"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <TextView
+        android:layout_width="115dp"
+        android:layout_height="22dp"
+        android:text="Senha:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="244dp" />
+
+    <EditText
+        android:id="@+id/edtSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="**********"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="266dp" />
+
+    <TextView
+        android:layout_width="115dp"
+        android:layout_height="22dp"
+        android:text="Repita a senha:"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="347dp" />
+
+    <EditText
+        android:id="@+id/edtRepitaSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="**********"
+        android:inputType="textPassword"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="369dp" />
+
+    <Button
+        android:id="@+id/btnCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CADASTRAR"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="447dp" />
+
 
 </android.support.constraint.ConstraintLayout>
